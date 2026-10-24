@@ -12,7 +12,6 @@ from auth_service.schemas.webhook import (
     WebhookConfigResponse,
     WebhookCreationRequest,
     WebhookCreationResponse,
-    WebhookConfigDeletionRequest,
     WebhookConfigDeletionResponse
 
 )
@@ -43,7 +42,6 @@ async def set_webhook_config(
 
 @router.get("", response_model=WebhookConfigResponse)
 async def obtain_webhook_config(
-    body: WebhookCreationRequest,
     x_developer_id: Annotated[uuid.UUID, Depends(get_current_developer)],
     db: Annotated[AsyncSession,Depends(get_session)],
 ):
@@ -69,5 +67,5 @@ async def delete_webhook_config(
         return WebhookConfigDeletionResponse()
         
 
-    
+
     

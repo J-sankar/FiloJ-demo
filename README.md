@@ -225,7 +225,7 @@ curl -X DELETE "http://localhost:8000/auth/api/webhook" \
 ## Repository structure
 
 ```text
-dunno-what/
+FiloJ/
 ├── api/
 ├── auth_service/
 ├── database/

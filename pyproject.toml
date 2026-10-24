@@ -1,7 +1,7 @@
 [project]
-name = "dunno-what"
+name = "filoj"
 version = "0.1.0"
-description = "Add your description here"
+description = "Event-driven distributed file-processing system"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []

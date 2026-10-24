@@ -23,7 +23,7 @@ async def _publish_audit(
         routing_key,
         payload={
             "job_id": job_id,
-            "service": "image_processor",
+            "service": "dispatcher",
             "routing_key": routing_key,
             "action": action,
         },

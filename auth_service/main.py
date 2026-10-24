@@ -28,7 +28,7 @@ app.include_router(router, prefix="/api/auth")
 app.include_router(api_router, prefix="/api/key")
 app.include_router(webhook_router,prefix="/api/webhook")
 
-app.get("/health")
+@app.get("/health")
 def health():
     return {"status":"healthy"}
 

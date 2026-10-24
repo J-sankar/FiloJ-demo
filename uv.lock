@@ -7,7 +7,7 @@ members = [
     "api",
     "api-gateway",
     "auth-service",
-    "dunno-what",
+    "filoj",
     "image-processor",
     "logger-service",
     "security-scanner",
@@ -496,11 +496,6 @@ wheels = [
 ]
 
 [[package]]
-name = "dunno-what"
-version = "0.1.0"
-source = { virtual = "." }
-
-[[package]]
 name = "ecdsa"
 version = "0.19.2"
 source = { registry = "https://pypi.org/simple" }
@@ -540,6 +535,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/d3/af/a5f50ccfa659ec180
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9e/7c/8e3c6ad324ea5cb36604fc3f968554887891c316d9dfde57761611d907ad/fastapi-0.139.0-py3-none-any.whl", hash = "sha256:cf15e1e9e667ddb0ad63811e60bd11390d1aac838ca4a7a23f421807b2308189", size = 130339, upload-time = "2026-07-01T16:35:32.19Z" },
 ]
+
+[[package]]
+name = "filoj"
+version = "0.1.0"
+source = { virtual = "." }
 
 [[package]]
 name = "frozenlist"
