@@ -32,7 +32,7 @@ class FileServiceHandler(ServiceHandler):
                     "storage_quota_bytes": response.storage_quota_bytes,
                 }
                 await api_key_repo.cache_metadata(key_hash, metadata)
-                await self.get_context(request)
+                return await self.get_context(request)
         if result == -1 :
                 logger.warning("Api key inactive/revoked")
                 raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="Api key inactive/revoked")

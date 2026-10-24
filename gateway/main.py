@@ -21,6 +21,8 @@ async def lifespan(app: FastAPI):
     client = httpx.AsyncClient(
         limits=httpx.Limits(max_keepalive_connections=50, max_connections=100)
     )
+    redis_client = None
+    grpc_auth_client = None
     try:
         redis_client = RedisClient(settings.REDIS_HOST, settings.REDIS_PORT)
         grpc_auth_client = AuthGrpcClient()
@@ -30,11 +32,12 @@ async def lifespan(app: FastAPI):
         app.state.http_client = client
 
         yield
-        await grpc_auth_client.close()
-        await redis_client.close()
-        await app.state.http_client.aclose()
-    except Exception as e:
-        logger.exception(f"ERROR : {str(e).lower()}")
+    finally:
+        if grpc_auth_client is not None:
+            await grpc_auth_client.close()
+        if redis_client is not None:
+            await redis_client.close()
+        await client.aclose()
 
 
 app = FastAPI(title="API Gateway", lifespan=lifespan)
